@@ -1,0 +1,16 @@
+#-----------------------------------------------------------
+# Vivado v2018.2 (64-bit)
+# SW Build 2258646 on Thu Jun 14 20:03:12 MDT 2018
+# IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
+# Start of session at: Wed Feb 20 20:21:50 2019
+# Process ID: 4424
+# Current directory: C:/Users/User/Desktop/Lab4
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent6932 C:\Users\User\Desktop\Lab4\Lab4.xpr
+# Log file: C:/Users/User/Desktop/Lab4/vivado.log
+# Journal file: C:/Users/User/Desktop/Lab4\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project C:/Users/User/Desktop/Lab4/Lab4.xpr
+update_compile_order -fileset sources_1
+archive_project C:/Users/User/Desktop/Lab4.xpr.zip -temp_dir C:/Users/User/Desktop/Lab4/.Xil/Vivado-4424-DESKTOP-JGTAFQF -force -include_local_ip_cache
+reset_run synth_1
