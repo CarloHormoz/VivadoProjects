@@ -1,0 +1,19 @@
+#-----------------------------------------------------------
+# Vivado v2018.2 (64-bit)
+# SW Build 2258646 on Thu Jun 14 20:03:12 MDT 2018
+# IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
+# Start of session at: Sun Mar 17 13:37:33 2019
+# Process ID: 17256
+# Current directory: C:/Users/User/Desktop/SingleCycle
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent20124 C:\Users\User\Desktop\SingleCycle\SingleCycle.xpr
+# Log file: C:/Users/User/Desktop/SingleCycle/vivado.log
+# Journal file: C:/Users/User/Desktop/SingleCycle\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project C:/Users/User/Desktop/SingleCycle/SingleCycle.xpr
+launch_simulation
+source tb_DataPath.tcl
+current_wave_config {Untitled 1}
+add_wave {{/tb_DataPath/DUT/U0/U4}} 
+relaunch_sim
+close_sim
