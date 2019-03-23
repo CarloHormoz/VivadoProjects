@@ -1,0 +1,653 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date: 03/11/2019 08:35:45 PM
+// Design Name: 
+// Module Name: 2to1Mux
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+module 2to1Mux(
+
+    );
+endmodule
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date: 03/11/2019 08:40:59 PM
+// Design Name: 
+// Module Name: ALU
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+module ALU(input [2:0] ALUSel, [4:0] shamt, signed [31:0] ALUIn1, signed [31:0] ALUIn2,
+           output Zero, reg signed [31:0] ALUOutR);   
+           initial ALUOutR = 0;        
+    always @ (*) begin
+        case (ALUSel)
+            3'b000: ALUOutR = ALUIn1 & ALUIn2;
+            3'b001: ALUOutR = ALUIn1 | ALUIn2;
+            3'b010: ALUOutR = ALUIn1 + ALUIn2;
+            3'b011: ALUOutR = ALUIn2 << shamt;
+            3'b100: ALUOutR = ALUIn2 << ALUIn1[4:0];
+            3'b101: ALUOutR = ALUIn2 >>> ALUIn1[4:0];
+            3'b110: ALUOutR = ALUIn1 - ALUIn2;
+        endcase
+    end
+    assign Zero = ALUOutR == 0 ? 1 : 0;
+endmodule
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date: 03/12/2019 12:16:24 AM
+// Design Name: 
+// Module Name: ALUDecoder
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+module ALUDecoder(input [5:0] Funct, [1:0] ALUOp, output reg [2:0] ALUSel);
+
+    always @ (*) begin
+    casex(ALUOp)
+        0: begin
+            ALUSel = 3'b010;    // ADD
+        end
+        1: begin
+            ALUSel = 3'b110;    // SUBTRACT
+        end
+        2'b1x: begin    // 2 or 3 -> Look at funct
+            case(Funct)
+                6'b000000: begin
+                    ALUSel = 3'b011;    // SHIFT LEFT
+                end
+                6'b100000: begin
+                    ALUSel = 3'b010;    // ADD
+                end
+                6'b100010: begin
+                    ALUSel = 3'b110;    // SUBTRACT
+                end
+                6'b100100: begin
+                    ALUSel = 3'b000;    // AND
+                end
+                6'b100101: begin
+                    ALUSel = 3'b001;    // OR
+                end
+                6'b101010: begin
+                    ALUSel = 3'b111;    // SLT
+                end
+                6'b000100: begin
+                    ALUSel = 3'b100;    // SLLV
+                end
+                6'b000111: begin
+                    ALUSel = 3'b101;    // SRAV
+                end
+                default: ALUSel = 3'bxxx;
+            endcase
+        end
+        default: ALUSel = 3'bxxx;
+    endcase
+end
+
+endmodule
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date: 03/11/2019 11:25:51 PM
+// Design Name: 
+// Module Name: InstDecoder
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+module InstDecoder(input [31:0] Inst, output [5:0] OpCode, [4:0] rs, [4:0] rt,
+                    [4:0] rd, [5:0] Funct, [25:0] Jaddr, [4:0] shamt, signed [31:0] SImm);
+    assign OpCode = Inst[31:26];     
+    assign rs = Inst[25:21];
+    assign rt = Inst[20:16];
+    assign rd = Inst[15:11];
+    assign Funct = Inst[5:0];
+    assign Jaddr = Inst[25:0];
+    assign shamt = Inst[10:6];
+    assign SImm = {{16{Inst[15]}}, Inst[15:0]}; // Sign extend immediate to 32 bits.
+    
+endmodule
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date: 03/11/2019 09:24:10 PM
+// Design Name: 
+// Module Name: IR
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+module IR(input CLK, IRWE, [31:0] MRD, output reg [31:0] Inst);
+    always @ (posedge CLK) begin
+        if (IRWE) Inst <= MRD;
+    end
+endmodule
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date: 03/12/2019 12:16:24 AM
+// Design Name: 
+// Module Name: MainDecoder
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+module MainDecoder(input CLK, RST, [5:0] OpCode, output reg IDSel, ALUIn1Sel, RFDSel, MtoRFSel, Branch,
+                   reg [1:0] ALUIn2Sel, PCSel, reg IRWE, MWE, PCWE, RFWE, reg [1:0] ALUOp);
+        localparam s0 = 4'b0000, s1 = 4'b0001, s2 = 4'b0010, s3 = 4'b0011, s4 = 4'b0100, s5 = 4'b0101,
+                   s6 = 4'b0110, s7 = 4'b0111, s8 = 4'b1000, s9 = 4'b1001, s10 = 4'b1010, s11 = 4'b1011;
+        reg [3:0] state = 4'b0;
+        
+        always @ (posedge CLK) begin
+            if (RST) state <= s0;
+            else begin
+                case(state)
+                    s0: state <= s1;
+                    s1: begin
+                        case(OpCode)
+                            6'b100011: state <= s2;     // LW
+                            6'b101011: state <= s2;     // SW
+                            6'b000000: state <= s6;     // R-Type
+                            6'b001000: state <= s9;
+                            6'b000100: state <= s8;     // Beq
+                            6'b000010: state <= s11;    // J
+                            default: state <= s2;
+                        endcase
+                    end
+                    s2: begin
+                        if (OpCode == 6'b100011) state <= s3;   // LW
+                        else state <= s5;                       // SW
+                    end
+                    s3: state <= s4;
+                    s4: state <= s0;
+                    s5: state <= s0;
+                    s6: state <= s7;        // R-Type
+                    s7: state <= s0;
+                    s8: state <= s0;
+                    s9: state <= s10;
+                    s10: state <= s0;
+                    s11: state <= s0;
+                    default: state <= s0;
+                endcase
+            end            
+        end
+        
+        always @ (*) begin
+            case(state)
+                s0: begin
+                    MtoRFSel = 1'bx; RFDSel = 1'bx; IDSel = 0; PCSel = 2'b00; 
+                    ALUIn1Sel = 0; ALUIn2Sel = 2'b01; ALUOp = 2'b00;
+                    IRWE = 1; PCWE = 1; MWE = 0; Branch = 0; RFWE = 0;
+                end
+                s1: begin
+                    PCWE = 0; IRWE = 0; ALUIn2Sel = 2'b10;
+                end
+                s2: begin
+                    ALUIn1Sel = 1; ALUIn2Sel = 2'b10; ALUOp = 2'b00;
+                end
+                s3: begin
+                    IDSel = 1;
+                end
+                s4: begin
+                    RFWE = 1; RFDSel = 0; MtoRFSel = 1;
+                end
+                s5: begin
+                    IDSel = 1; MWE = 1;
+                end
+                s6: begin
+                    ALUIn1Sel = 1; ALUIn2Sel = 2'b00; ALUOp = 2'b10;
+                end
+                s7: begin
+                    RFDSel = 1; MtoRFSel = 0; RFWE = 1;
+                end
+                s8: begin
+                    ALUIn1Sel = 1; ALUIn2Sel = 2'b00; ALUOp = 2'b01;
+                    PCSel = 2'b01; Branch = 1;
+                end
+                s9: begin
+                    ALUIn1Sel = 1; ALUIn2Sel = 2'b10; ALUOp = 2'b00;
+                end
+                s10: begin
+                    RFDSel = 0; MtoRFSel = 0; RFWE = 1;
+                end
+                s11: begin
+                    PCSel = 2'b10;  PCWE = 1;
+                end
+            endcase
+        end
+endmodule
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date: 03/11/2019 08:40:59 PM
+// Design Name: 
+// Module Name: MEM
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+module MEM(input CLK, MWE, [31:0] MRA, [31:0] MWD, output [31:0] MRD);
+
+    reg [31:0] Mem [0:400];
+    initial $readmemb("Memory.mem", Mem);
+    always @ (posedge CLK) begin
+        if (MWE) Mem[MRA] <= MWD;
+    end
+         assign MRD = Mem[MRA];
+endmodule
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date: 03/11/2019 08:36:43 PM
+// Design Name: 
+// Module Name: Mux2to1
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+module Mux2to1#(parameter WL = 32)(input sel, [WL - 1:0] in1, [WL - 1:0] in2, output [WL - 1:0] out);
+    assign out = sel ? in1 : in2;   // in2 corresponds with upper input on schematic. in1 is lower input
+endmodule
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date: 03/11/2019 10:44:29 PM
+// Design Name: 
+// Module Name: Mux4to1
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+module Mux4to1#(parameter WL = 32)(input [WL - 1:0] in1, in2, in3, in4, [1:0] sel, output reg [WL - 1:0] out);
+    always @ (*) begin
+        case(sel)
+            2'b00: out = in4;
+            2'b01: out = in3;
+            2'b10: out = in2;
+        endcase
+    end    
+endmodule
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date: 03/11/2019 08:40:59 PM
+// Design Name: 
+// Module Name: PC
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+module PC(input CLK, RST, PCEn, [31:0] PCin, output reg [31:0] PCout);
+    initial PCout = 0;
+    always @ (posedge CLK) begin
+        if (PCEn) begin
+            if (RST) PCout <= 0;
+            else PCout <= PCin;
+        end
+    end
+endmodule
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date: 03/11/2019 08:38:27 PM
+// Design Name: 
+// Module Name: Register
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+module Register(input CLK, [31:0] in, output reg [31:0] out);
+    always @ (posedge CLK) begin
+        out <= in;
+    end   
+endmodule
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date: 03/11/2019 08:40:59 PM
+// Design Name: 
+// Module Name: RF
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+module RF(input CLK, RFWE, [4:0] RFRA1, RFRA2, RFWA, [31:0] RFWD, output [31:0] RFRD1, RFRD2);
+
+    reg [31:0] regFile [0:31];
+    integer i;
+    
+    initial begin
+        for (i = 0; i < 32; i = i + 1) regFile[i] = 32'b0;
+    end
+    
+    assign RFRD1 = regFile[RFRA1];
+    assign RFRD2 = regFile[RFRA2];
+    
+    always @ (posedge CLK) begin
+        if (RFWE) regFile[RFWA] = RFWD;
+    end
+
+endmodule
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date: 03/11/2019 08:40:59 PM
+// Design Name: 
+// Module Name: Top
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+module Top(input CLK, RST, output out);
+    wire PCWE, RFWE, MWE, IRWE, ALUIn1Sel, IDSel, RFDSel, MtoRFSel, Branch;
+    wire [1:0] ALUIn2Sel, PCSel;
+    wire [2:0] ALUSel;
+    wire [5:0] OpCode, Funct;
+    
+    assign out = PCWE;
+    
+    TopData U0 (.CLK(CLK), .RST(RST), .PCWE(PCWE), .RFWE(RFWE), .MWE(MWE), .MtoRFSel(MtoRFSel),
+                .IRWE(IRWE), .RFDSel(RFDSel), .ALUIn1Sel(ALUIn1Sel), .ALUIn2Sel(ALUIn2Sel),
+                .IDSel(IDSel), .PCSel(PCSel), .ALUSel(ALUSel), .Branch(Branch), .OpCode(OpCode), .Funct(Funct));
+                
+    TopControl U1(.CLK(CLK), .RST(RST), .OpCode(OpCode), .Funct(Funct), .PCWE(PCWE), .RFWE(RFWE), .MWE(MWE),
+                  .IRWE(IRWE), .ALUIn1Sel(ALUIn1Sel), .RFDSel(RFDSel), .MtoRFSel(MtoRFSel), .ALUIn2Sel(ALUIn2Sel),
+                  .PCSel(PCSel), .Branch(Branch), .IDSel(IDSel), .ALUSel(ALUSel));    
+                  
+endmodule
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date: 03/11/2019 08:40:59 PM
+// Design Name: 
+// Module Name: TopControl
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+module TopControl(input CLK, RST, [5:0] OpCode, Funct, output PCWE, RFWE, MWE, IRWE, 
+                  RFDSel, MtoRFSel, Branch, ALUIn1Sel, IDSel, [1:0] ALUIn2Sel, PCSel, [2:0] ALUSel);
+                  
+    wire [1:0] ALUOp;
+    
+    MainDecoder U0 (.CLK(CLK), .RST(RST), .OpCode(OpCode), .IDSel(IDSel), .ALUIn1Sel(ALUIn1Sel), .RFDSel(RFDSel), .PCSel(PCSel), .Branch(Branch),
+                    .MtoRFSel(MtoRFSel), .ALUIn2Sel(ALUIn2Sel), .IRWE(IRWE), .MWE(MWE), .PCWE(PCWE), .RFWE(RFWE), .ALUOp(ALUOp));
+    
+    ALUDecoder U1 (.Funct(Funct), .ALUOp(ALUOp), .ALUSel(ALUSel));
+    
+endmodule
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date: 03/11/2019 08:40:59 PM
+// Design Name: 
+// Module Name: TopData
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+module TopData(input CLK, RST, PCWE, RFWE, MWE, IRWE, RFDSel, MtoRFSel,
+                ALUIn1Sel, Branch, IDSel, [1:0] ALUIn2Sel, PCSel, [2:0] ALUSel,
+                output [5:0] OpCode, Funct);
+
+ // Mux wire lengths.
+    parameter WL5 = 5;
+    parameter WL32 = 32;
+               
+    wire [31:0] PCtoMem; 
+    wire [31:0] MemOut;
+    wire [31:0] Inst;          // Connects to InstDecoder from IR and stores instruction to be decoded. 
+    wire [31:0] DROut;         // Connects DR to RFWD
+    wire [31:0] MtoRFOut;
+    wire [31:0] ALUOut;
+    wire [31:0] PCin;
+    wire [4:0] RFDOut;
+    
+    wire signed [31:0] ALUIn1; // Connects RFRD1 to 1st ALU input.
+    wire signed [31:0] ALUIn2; // Sign extended immediate to 2nd Alu input.
+    wire [31:0] ALUOutR;        // Output of ALU
+    wire Zero;                 // Zero Flag.
+    
+    wire [31:0] RegAIn, RegAOut;
+    wire [31:0] RegBIn, RegBOut;
+   
+    wire [31:0] ALUDM;         // Output of Mux that selects ALUOut/DMOut.
+    wire [4:0] rtd;           // Output of Mux that selects rt/rd for R-type
+    
+    wire PCEn;               // Enables write to PC when (Branch AND Zero) OR PCWE.
+    assign PCEn = ((Branch && Zero) || PCWE) ? 1 : 0;
+    
+    // Declare variables to store fields of the instruction.
+    wire [4:0] rs, rt, rd, shamt;
+    wire signed [31:0] SImm;                    
+    wire [25:0] Jaddr;
+    wire [31:0] Adr;
+    wire [31:0] PCJump;
+    assign PCJump = {PCin[31:26], Jaddr};
+    
+    PC U0 (.CLK(CLK), .RST(RST), .PCEn(PCEn), .PCin(PCin), .PCout(PCtoMem)); // Prog Counter
+    
+    Mux2to1 #(.WL(WL32)) M2 (.sel(IDSel), .in1(ALUOutR), .in2(PCtoMem), .out(Adr));
+   
+    MEM U1 (.CLK(CLK), .MWE(MWE), .MRA(Adr), .MWD(RegBOut), .MRD(MemOut));   // Memory
+    
+    IR R0 (.CLK(CLK), .IRWE(IRWE), .MRD(MemOut), .Inst(Inst));      // Instruction Register to InstDecoder
+    
+    Register DR (.CLK(CLK), .in(MemOut), .out(DROut));      // Data Register to RegFile(RFWD)
+    
+    Mux2to1#(.WL(WL5)) RFDMux (.sel(RFDSel), .in1(rd), .in2(rt), .out(RFDOut));
+    
+    Mux2to1#(.WL(WL32)) MtoRFMux (.sel(MtoRFSel), .in1(DROut), .in2(ALUOutR), .out(MtoRFOut));
+    
+    InstDecoder ID (.Inst(Inst), .OpCode(OpCode),  // Decodes 32 bit instruction
+                    .rs(rs), .rt(rt), .rd(rd),
+                    .Funct(Funct), .shamt(shamt),
+                    .Jaddr(Jaddr), .SImm(SImm));
+                    
+    RF U2 (.CLK(CLK), .RFWE(RFWE), .RFRA1(rs), .RFRA2(rt), .RFWA(RFDOut),   // Register File
+           .RFWD(MtoRFOut), .RFRD1(RegAIn), .RFRD2(RegBIn));
+    
+    Register RA (.CLK(CLK), .in(RegAIn), .out(RegAOut));
+    
+    Register RB (.CLK(CLK), .in(RegBIn), .out(RegBOut));
+    
+    Mux2to1 # (.WL(WL32)) M0 (.sel(ALUIn1Sel), .in1(RegAOut), .in2(PCtoMem), .out(ALUIn1));
+    
+    Mux4to1 # (.WL(WL32)) M1 (.sel(ALUIn2Sel), .in1(), .in2(SImm), .in3(32'b1), .in4(RegBOut), .out(ALUIn2));
+    
+    ALU U3 (.ALUSel(ALUSel), .shamt(shamt), .ALUIn1(ALUIn1), 
+             .ALUIn2(ALUIn2), .Zero(Zero), .ALUOutR(ALUOut));
+             
+    Register ALUReg (.CLK(CLK), .in(ALUOut), .out(ALUOutR));
+    
+    Mux4to1 #(.WL(WL32)) ALUMux (.sel(PCSel), .in1(), .in2(PCJump), .in3(ALUOutR), .in4(ALUOut), .out(PCin));
+    
+endmodule
+

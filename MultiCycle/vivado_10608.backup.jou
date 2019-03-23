@@ -1,0 +1,204 @@
+#-----------------------------------------------------------
+# Vivado v2018.2 (64-bit)
+# SW Build 2258646 on Thu Jun 14 20:03:12 MDT 2018
+# IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
+# Start of session at: Sun Mar 17 11:26:48 2019
+# Process ID: 10608
+# Current directory: C:/Users/User/Desktop/MultiCycle
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent20168 C:\Users\User\Desktop\MultiCycle\MultiCycle.xpr
+# Log file: C:/Users/User/Desktop/MultiCycle/vivado.log
+# Journal file: C:/Users/User/Desktop/MultiCycle\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project C:/Users/User/Desktop/MultiCycle/MultiCycle.xpr
+update_compile_order -fileset sources_1
+launch_runs synth_1 -jobs 8
+wait_on_run synth_1
+launch_runs impl_1 -jobs 8
+wait_on_run impl_1
+launch_simulation
+source tb_multi.tcl
+current_wave_config {Untitled 1}
+add_wave {{/tb_multi/DUT/U0/U2/regFile}} 
+current_wave_config {Untitled 1}
+add_wave {{/tb_multi/DUT/U0/U1/Mem}} 
+relaunch_sim
+current_wave_config {Untitled 1}
+add_wave {{/tb_multi/DUT/U0/U0/PCin}} 
+current_wave_config {Untitled 1}
+add_wave {{/tb_multi/DUT/U0/U0/PCout}} 
+relaunch_sim
+close_sim
+launch_simulation
+source tb_multi.tcl
+current_wave_config {Untitled 2}
+add_wave {{/tb_multi/DUT/U0/U0}} 
+relaunch_sim
+close_sim
+launch_simulation
+source tb_multi.tcl
+current_wave_config {Untitled 3}
+add_wave {{/tb_multi/DUT/U0/U0}} 
+relaunch_sim
+current_wave_config {Untitled 3}
+add_wave {{/tb_multi/DUT/U1/U0/state}} 
+relaunch_sim
+close_sim
+launch_simulation
+source tb_multi.tcl
+current_wave_config {Untitled 4}
+add_wave {{/tb_multi/DUT/U0/U0}} 
+relaunch_sim
+close_sim
+launch_simulation
+source tb_multi.tcl
+relaunch_sim
+current_wave_config {Untitled 5}
+add_wave {{/tb_multi/DUT/U0/U0}} 
+relaunch_sim
+current_wave_config {Untitled 5}
+add_wave {{/tb_multi/DUT/U1/U0/state}} 
+relaunch_sim
+current_wave_config {Untitled 5}
+add_wave {{/tb_multi/DUT/U1/U0/PCWE}} 
+current_wave_config {Untitled 5}
+add_wave {{/tb_multi/DUT/U0/U3/Zero}} 
+relaunch_sim
+close_sim
+launch_simulation
+source tb_multi.tcl
+current_wave_config {Untitled 6}
+add_wave {{/tb_multi/DUT/U0/U0}} 
+relaunch_sim
+current_wave_config {Untitled 6}
+add_wave {{/tb_multi/DUT/U0/U3/Zero}} 
+relaunch_sim
+current_wave_config {Untitled 6}
+add_wave {{/tb_multi/DUT/U0/U3/ALUIn1}} 
+current_wave_config {Untitled 6}
+add_wave {{/tb_multi/DUT/U0/U3/ALUIn2}} 
+current_wave_config {Untitled 6}
+add_wave {{/tb_multi/DUT/U0/U3/ALUOutR}} 
+relaunch_sim
+relaunch_sim
+reset_run synth_1
+launch_runs synth_1 -jobs 8
+wait_on_run synth_1
+launch_runs impl_1 -jobs 8
+wait_on_run impl_1
+close_sim
+launch_simulation
+source tb_multi.tcl
+current_wave_config {Untitled 7}
+add_wave {{/tb_multi/DUT/U0/U2/regFile[0]}} 
+relaunch_sim
+current_wave_config {Untitled 7}
+add_wave {{/tb_multi/DUT/U1/U0/state}} 
+relaunch_sim
+close_sim
+launch_simulation
+source tb_multi.tcl
+current_wave_config {Untitled 8}
+add_wave {{/tb_multi/DUT/U0/U2/regFile}} 
+current_wave_config {Untitled 8}
+add_wave {{/tb_multi/DUT/U0/U1/Mem}} 
+relaunch_sim
+close_sim
+launch_simulation
+source tb_multi.tcl
+current_wave_config {Untitled 9}
+add_wave {{/tb_multi/DUT/U0/U1/Mem}} 
+relaunch_sim
+close_sim
+launch_simulation
+source tb_multi.tcl
+close_sim
+launch_simulation
+source tb_multi.tcl
+close_sim
+launch_simulation
+source tb_multi.tcl
+current_wave_config {Untitled 12}
+remove_forces { {/tb_multi/DUT/U0/DR/in} }
+close_sim
+launch_simulation
+source tb_multi.tcl
+add_wave {{/tb_multi/DUT/U0/U1/MWD}} 
+relaunch_sim
+current_wave_config {Untitled 14}
+add_wave {{/tb_multi/DUT/U0/U1/MRA}} 
+relaunch_sim
+current_wave_config {Untitled 14}
+add_wave {{/tb_multi/DUT/U0/U1/MWE}} 
+relaunch_sim
+close_sim
+launch_simulation
+source tb_multi.tcl
+close_sim
+launch_simulation
+source tb_multi.tcl
+close_sim
+launch_simulation
+source tb_multi.tcl
+current_wave_config {Untitled 17}
+add_wave {{/tb_multi/DUT/U0/U2/regFile[20]}} 
+relaunch_sim
+current_wave_config {Untitled 17}
+add_wave {{/tb_multi/DUT/U0/U3/ALUOutR}} 
+current_wave_config {Untitled 17}
+add_wave {{/tb_multi/DUT/U0/U3/ALUIn2}} 
+current_wave_config {Untitled 17}
+add_wave {{/tb_multi/DUT/U0/U3/ALUIn1}} 
+current_wave_config {Untitled 17}
+add_wave {{/tb_multi/DUT/U0/U3/ALUSel}} 
+relaunch_sim
+relaunch_sim
+add_wave {{/tb_multi/DUT/U0/U0/PCEn}} 
+relaunch_sim
+set_property -name {xsim.simulate.runtime} -value {10000ns} -objects [get_filesets sim_1]
+close_sim
+launch_simulation
+source tb_multi.tcl
+close_sim
+launch_simulation
+source tb_multi.tcl
+close_sim
+launch_simulation
+source tb_multi.tcl
+current_wave_config {Untitled 21}
+add_wave {{/tb_multi/DUT/U0/U2/regFile[16]}} 
+relaunch_sim
+current_wave_config {Untitled 21}
+log_wave {/tb_multi/DUT/U1/U0/OpCode} 
+current_wave_config {Untitled 21}
+add_wave {{/tb_multi/DUT/U1/U0/OpCode}} 
+relaunch_sim
+reset_run synth_1
+launch_runs synth_1 -jobs 8
+wait_on_run synth_1
+launch_runs impl_1 -jobs 8
+wait_on_run impl_1
+close_sim
+launch_simulation
+source tb_multi.tcl
+current_wave_config {Untitled 22}
+add_wave {{/tb_multi/DUT/U0/U2/regFile[16]}} 
+current_wave_config {Untitled 22}
+add_wave {{/tb_multi/DUT/U0/ALUMux/in1}} 
+current_wave_config {Untitled 22}
+add_wave {{/tb_multi/DUT/U0/ALUMux/out}} 
+relaunch_sim
+current_wave_config {Untitled 22}
+add_wave {{/tb_multi/DUT/U0/U0/PCout}} 
+relaunch_sim
+current_wave_config {Untitled 22}
+add_wave {{/tb_multi/DUT/U0/U3/Zero}} 
+relaunch_sim
+current_wave_config {Untitled 22}
+add_wave {{/tb_multi/DUT/U1/U0/state}} 
+relaunch_sim
+current_wave_config {Untitled 22}
+add_wave {{/tb_multi/DUT/U0/R0/Inst}} 
+relaunch_sim
+relaunch_sim
+close_sim
