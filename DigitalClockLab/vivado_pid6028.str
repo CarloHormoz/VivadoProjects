@@ -1,0 +1,595 @@
+/*
+
+Xilinx Vivado v2018.2 (64-bit) [Major: 2018, Minor: 2]
+SW Build: 2258646 on Thu Jun 14 20:03:12 MDT 2018
+IP Build: 2256618 on Thu Jun 14 22:10:49 MDT 2018
+
+Process ID: 6028
+License: Customer
+
+Current time: 	Tue Mar 19 11:46:19 PDT 2019
+Time zone: 	Pacific Standard Time (America/Los_Angeles)
+
+OS: Windows 10
+OS Version: 10.0
+OS Architecture: amd64
+Available processors (cores): 8
+
+Screen size: 1536x864
+Screen resolution (DPI): 96
+Available screens: 1
+Available disk space: 35 GB
+Default font: family=Dialog,name=Dialog,style=plain,size=12
+
+Java version: 	1.8.0_112 64-bit
+Java home: 	D:/Xilinx/Vivado/2018.2/tps/win64/jre
+Java executable location: 	D:/Xilinx/Vivado/2018.2/tps/win64/jre/bin/java.exe
+Java initial memory (-Xms): 	128 MB
+Java maximum memory (-Xmx):	 2 GB
+
+
+User name: 	User
+User home directory: C:/Users/User
+User working directory: C:/Users/User/Desktop/Lab6
+User country: 	US
+User language: 	en
+User locale: 	en_US
+
+RDI_BASEROOT: D:/Xilinx/Vivado
+HDI_APPROOT: D:/Xilinx/Vivado/2018.2
+RDI_DATADIR: D:/Xilinx/Vivado/2018.2/data
+RDI_BINDIR: D:/Xilinx/Vivado/2018.2/bin
+
+Vivado preferences file location: C:/Users/User/AppData/Roaming/Xilinx/Vivado/2018.2/vivado.xml
+Vivado preferences directory: C:/Users/User/AppData/Roaming/Xilinx/Vivado/2018.2/
+Vivado layouts directory: C:/Users/User/AppData/Roaming/Xilinx/Vivado/2018.2/layouts
+PlanAhead jar file location: 	D:/Xilinx/Vivado/2018.2/lib/classes/planAhead.jar
+Vivado log file location: 	C:/Users/User/Desktop/Lab6/vivado.log
+Vivado journal file location: 	C:/Users/User/Desktop/Lab6/vivado.jou
+Engine tmp dir: 	C:/Users/User/Desktop/Lab6/.Xil/Vivado-6028-DESKTOP-JGTAFQF
+
+Xilinx Environment Variables
+----------------------------
+XILINX: D:/Xilinx/Vivado/2018.2/ids_lite/ISE
+XILINX_DSP: D:/Xilinx/Vivado/2018.2/ids_lite/ISE
+XILINX_PLANAHEAD: D:/Xilinx/Vivado/2018.2
+XILINX_SDK: D:/Xilinx/SDK/2018.2
+XILINX_VIVADO: D:/Xilinx/Vivado/2018.2
+XILINX_VIVADO_HLS: D:/Xilinx/Vivado/2018.2
+
+
+GUI allocated memory:	147 MB
+GUI max memory:		3,052 MB
+Engine allocated memory: 549 MB
+
+Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+
+*/
+
+// TclEventType: START_GUI
+// Tcl Message: start_gui 
+// TclEventType: PROJECT_OPEN_DIALOG
+// [GUI Memory]: 69 MB (+69937kb) [00:00:08]
+// [Engine Memory]: 499 MB (+371628kb) [00:00:08]
+// TclEventType: PROJECT_OPEN_DIALOG
+// bx (ck):  Open Project : addNotify
+// Opening Vivado Project: C:\Users\User\Desktop\Lab6\Lab6.xpr. Version: Vivado v2018.2 
+// TclEventType: DEBUG_PROBE_SET_CHANGE
+// Tcl Message: open_project C:/Users/User/Desktop/Lab6/Lab6.xpr 
+// TclEventType: MSGMGR_MOVEMSG
+// TclEventType: FILE_SET_NEW
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_CURRENT
+// TclEventType: PROJECT_NEW
+// Tcl Message: open_project C:/Users/User/Desktop/Lab6/Lab6.xpr 
+// Tcl Message: Scanning sources... Finished scanning sources 
+// Tcl Message: INFO: [IP_Flow 19-234] Refreshing IP repositories INFO: [IP_Flow 19-1704] No user IP repositories specified 
+// [Engine Memory]: 564 MB (+41713kb) [00:00:12]
+// Tcl Message: INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'D:/Xilinx/Vivado/2018.2/data/ip'. 
+// HMemoryUtils.trashcanNow. Engine heap size: 566 MB. GUI used memory: 34 MB. Current time: 3/19/19 11:46:21 AM PDT
+// TclEventType: PROJECT_NEW
+// [Engine Memory]: 602 MB (+10662kb) [00:00:15]
+// Tcl Message: open_project: Time (s): cpu = 00:00:13 ; elapsed = 00:00:08 . Memory (MB): peak = 799.270 ; gain = 92.922 
+// Project name: Lab6; location: C:/Users/User/Desktop/Lab6; part: xc7a35tcpg236-1
+dismissDialog("Open Project"); // bx (ck)
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+// Tcl Message: update_compile_order -fileset sources_1 
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Clock (Clock.v)]", 1, false); // B (D, ck)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Clock (Clock.v)]", 1, false, false, false, false, false, true); // B (D, ck) - Double Click
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "Clock.v", 1); // k (j, ck)
+selectTab((HResource) null, "PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "Clock.v", 1, false, true); // k (j, ck) - Double Click
+maximizeView(PAResourceOtoP.PAViews_BASE_WORKSPACE, "BaseWorkspace"); // O (Q, ck)
+selectCodeEditor("Clock.v", 415, 147); // ce (w, ck)
+selectCodeEditor("Clock.v", 664, 425); // ce (w, ck)
+// Elapsed time: 10 seconds
+selectCodeEditor("Clock.v", 28, 386); // ce (w, ck)
+selectCodeEditor("Clock.v", 295, 433); // ce (w, ck)
+selectCodeEditor("Clock.v", 295, 433); // ce (w, ck)
+// Elapsed time: 14 seconds
+selectCodeEditor("Clock.v", 234, 195); // ce (w, ck)
+unmaximizeView(PAResourceOtoP.PAViews_BASE_WORKSPACE, "BaseWorkspace"); // O (Q, ck)
+// [GUI Memory]: 77 MB (+5026kb) [00:01:19]
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Program and Debug, Open Hardware Manager]", 21, true); // u (O, ck) - Node
+// Run Command: PAResourceCommand.PACommandNames_OPEN_HARDWARE_MANAGER
+// Tcl Command: 'rdi::info_commands get_hw_probes'
+// Tcl Command: 'load_features labtools'
+// TclEventType: LOAD_FEATURE
+// bx (ck):  Open Hardware Manager : addNotify
+// TclEventType: HW_SESSION_OPEN
+// Tcl Message: open_hw 
+// [Engine Memory]: 637 MB (+4731kb) [00:01:29]
+dismissDialog("Open Hardware Manager"); // bx (ck)
+selectButton(PAResourceOtoP.ProgramDebugTab_OPEN_TARGET, "Open target"); // h (cM, ck)
+selectMenuItem(PAResourceCommand.PACommandNames_AUTO_CONNECT_TARGET, "Auto Connect"); // ad (aj, ck)
+// Run Command: PAResourceCommand.PACommandNames_AUTO_CONNECT_TARGET
+// bx (ck):  Auto Connect : addNotify
+// Tcl Message: connect_hw_server 
+// Tcl Message: INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121 
+// HMemoryUtils.trashcanNow. Engine heap size: 645 MB. GUI used memory: 44 MB. Current time: 3/19/19 11:47:42 AM PDT
+// Tcl Message: INFO: [Labtools 27-2222] Launching hw_server... 
+// Tcl Message: INFO: [Labtools 27-2221] Launch Output:  ****** Xilinx hw_server v2018.2   **** Build date : Jun 14 2018-20:42:52     ** Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.   
+// TclEventType: HW_SERVER_UPDATE
+// TclEventType: HW_TARGET_CHANGE
+// TclEventType: HW_TARGET_CLOSE
+// TclEventType: HW_DEVICE_CHANGE
+// TclEventType: HW_SYSMON_ADD
+// TclEventType: HW_TARGET_UPDATE
+// Tcl Message: open_hw_target 
+// Tcl Message: INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210183AA5E94A 
+// TclEventType: HW_DEVICE_CHANGE
+// Tcl Message: set_property PROGRAM.FILE {C:/Users/User/Desktop/Lab6/Lab6.runs/impl_1/Clock.bit} [get_hw_devices xc7a35t_0] 
+// Tcl Message: current_hw_device [get_hw_devices xc7a35t_0] 
+// TclEventType: HW_DEVICE_CHANGE
+// TclEventType: HW_SYSMON_CHANGE
+// TclEventType: HW_DEVICE_UPDATE
+// TclEventType: HW_DEVICE_CHANGE
+// Tcl Message: refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a35t_0] 0] 
+// Tcl Message: INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it. 
+// [Engine Memory]: 1,298 MB (+660458kb) [00:01:38]
+dismissDialog("Auto Connect"); // bx (ck)
+selectButton(PAResourceOtoP.ProgramDebugTab_PROGRAM_DEVICE, "Program device"); // h (cM, ck)
+// Run Command: PAResourceCommand.PACommandNames_PROGRAM_FPGA
+// bB (ck): Program Device: addNotify
+selectButton(PAResourceOtoP.ProgramFpgaDialog_PROGRAM, "Program"); // a (bB)
+// bx (ck):  Program Device : addNotify
+// TclEventType: HW_DEVICE_CHANGE
+dismissDialog("Program Device"); // bB (ck)
+// Tcl Message: set_property PROBES.FILE {} [get_hw_devices xc7a35t_0] 
+// Tcl Message: set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0] 
+// TclEventType: HW_DEVICE_CHANGE
+// Tcl Message: set_property PROGRAM.FILE {C:/Users/User/Desktop/Lab6/Lab6.runs/impl_1/Clock.bit} [get_hw_devices xc7a35t_0] 
+// Tcl Message: program_hw_devices [get_hw_devices xc7a35t_0] 
+// TclEventType: HW_DEVICE_CHANGE
+// Tcl Message: INFO: [Labtools 27-3164] End of startup status: HIGH 
+// TclEventType: HW_DEVICE_CHANGE
+// TclEventType: HW_SYSMON_CHANGE
+// TclEventType: HW_DEVICE_UPDATE
+// TclEventType: HW_DEVICE_CHANGE
+// TclEventType: HW_DEVICE_PROBES_CHANGE
+// TclEventType: DEBUG_PROBE_SET_CHANGE
+// TclEventType: HW_DEVICE_PROBES_CHANGE
+// Tcl Message: refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0] 
+// Tcl Message: INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it. 
+// 'I' command handler elapsed time: 3 seconds
+dismissDialog("Program Device"); // bx (ck)
+selectCodeEditor("Clock.v", 323, 159); // ce (w, ck)
+// [GUI Memory]: 82 MB (+364kb) [00:02:15]
+// Elapsed time: 25 seconds
+maximizeView(PAResourceOtoP.PAViews_BASE_WORKSPACE, "BaseWorkspace"); // L (Q, ck)
+selectCodeEditor("Clock.v", 223, 80); // ce (w, ck)
+selectCodeEditor("Clock.v", 957, 164); // ce (w, ck)
+// Elapsed time: 60 seconds
+selectCodeEditor("Clock.v", 90, 94); // ce (w, ck)
+// Elapsed time: 93 seconds
+selectCodeEditor("Clock.v", 227, 299, false, false, false, true, false); // ce (w, ck) - Popup Trigger
+selectCodeEditor("Clock.v", 41, 146); // ce (w, ck)
+selectCodeEditor("Clock.v", 224, 293); // ce (w, ck)
+// Elapsed time: 26 seconds
+selectCodeEditor("Clock.v", 172, 296); // ce (w, ck)
+selectCodeEditor("Clock.v", 160, 308); // ce (w, ck)
+// Elapsed time: 20 seconds
+selectCodeEditor("Clock.v", 181, 230); // ce (w, ck)
+selectCodeEditor("Clock.v", 34, 180); // ce (w, ck)
+selectCodeEditor("Clock.v", 41, 208); // ce (w, ck)
+selectCodeEditor("Clock.v", 40, 198); // ce (w, ck)
+// Elapsed time: 12 seconds
+selectCodeEditor("Clock.v", 55, 198); // ce (w, ck)
+selectCodeEditor("Clock.v", 51, 199); // ce (w, ck)
+// [GUI Memory]: 88 MB (+2681kb) [00:06:52]
+// Elapsed time: 55 seconds
+selectCodeEditor("Clock.v", 362, 198); // ce (w, ck)
+// Elapsed time: 27 seconds
+typeControlKey((HResource) null, "Clock.v", 'v'); // ce (w, ck)
+selectCodeEditor("Clock.v", 102, 82); // ce (w, ck)
+selectCodeEditor("Clock.v", 588, 195); // ce (w, ck)
+selectCodeEditor("Clock.v", 368, 197); // ce (w, ck)
+selectCodeEditor("Clock.v", 366, 197); // ce (w, ck)
+// Elapsed time: 10 seconds
+selectCodeEditor("Clock.v", 366, 197); // ce (w, ck)
+// HMemoryUtils.trashcanNow. Engine heap size: 1,319 MB. GUI used memory: 46 MB. Current time: 3/19/19 11:54:17 AM PDT
+// Elapsed time: 13 seconds
+selectCodeEditor("Clock.v", 192, 96); // ce (w, ck)
+// Elapsed time: 12 seconds
+selectCodeEditor("Clock.v", 320, 100); // ce (w, ck)
+selectCodeEditor("Clock.v", 315, 106); // ce (w, ck)
+// Elapsed time: 24 seconds
+selectCodeEditor("Clock.v", 202, 323); // ce (w, ck)
+selectCodeEditor("Clock.v", 199, 313); // ce (w, ck)
+typeControlKey((HResource) null, "Clock.v", 'v'); // ce (w, ck)
+selectCodeEditor("Clock.v", 204, 330); // ce (w, ck)
+selectCodeEditor("Clock.v", 446, 338, false, false, false, true, false); // ce (w, ck) - Popup Trigger
+selectCodeEditor("Clock.v", 415, 326); // ce (w, ck)
+selectCodeEditor("Clock.v", 134, 309); // ce (w, ck)
+// Elapsed time: 11 seconds
+selectCodeEditor("Clock.v", 101, 378); // ce (w, ck)
+// [GUI Memory]: 93 MB (+114kb) [00:09:34]
+// Elapsed time: 30 seconds
+selectCodeEditor("Clock.v", 89, 152); // ce (w, ck)
+selectCodeEditor("Clock.v", 89, 152); // ce (w, ck)
+selectCodeEditor("Clock.v", 94, 166); // ce (w, ck)
+selectCodeEditor("Clock.v", 50, 179); // ce (w, ck)
+selectCodeEditor("Clock.v", 133, 198); // ce (w, ck)
+selectCodeEditor("Clock.v", 209, 332); // ce (w, ck)
+selectCodeEditor("Clock.v", 221, 332); // ce (w, ck)
+// Elapsed time: 46 seconds
+selectCodeEditor("Clock.v", 281, 333); // ce (w, ck)
+selectCodeEditor("Clock.v", 299, 335); // ce (w, ck)
+// Elapsed time: 13 seconds
+selectCodeEditor("Clock.v", 311, 385); // ce (w, ck)
+selectCodeEditor("Clock.v", 204, 354); // ce (w, ck)
+selectCodeEditor("Clock.v", 216, 347); // ce (w, ck)
+// Elapsed time: 31 seconds
+selectCodeEditor("Clock.v", 264, 350); // ce (w, ck)
+selectCodeEditor("Clock.v", 232, 384); // ce (w, ck)
+// Elapsed time: 10 seconds
+selectCodeEditor("Clock.v", 231, 397); // ce (w, ck)
+// Elapsed time: 10 seconds
+selectCodeEditor("Clock.v", 230, 416); // ce (w, ck)
+// Elapsed time: 14 seconds
+selectCodeEditor("Clock.v", 216, 416); // ce (w, ck)
+selectCodeEditor("Clock.v", 347, 431); // ce (w, ck)
+selectCodeEditor("Clock.v", 340, 434); // ce (w, ck)
+selectCodeEditor("Clock.v", 221, 450); // ce (w, ck)
+selectCodeEditor("Clock.v", 227, 454); // ce (w, ck)
+selectCodeEditor("Clock.v", 227, 454); // ce (w, ck)
+selectCodeEditor("Clock.v", 227, 454); // ce (w, ck)
+selectCodeEditor("Clock.v", 229, 452); // ce (w, ck)
+// Elapsed time: 12 seconds
+selectCodeEditor("Clock.v", 229, 472); // ce (w, ck)
+selectCodeEditor("Clock.v", 344, 463); // ce (w, ck)
+selectCodeEditor("Clock.v", 271, 478); // ce (w, ck)
+// Elapsed time: 21 seconds
+selectCodeEditor("Clock.v", 296, 418); // ce (w, ck)
+selectCodeEditor("Clock.v", 183, 430); // ce (w, ck)
+selectCodeEditor("Clock.v", 192, 444); // ce (w, ck)
+selectCodeEditor("Clock.v", 192, 434); // ce (w, ck)
+selectCodeEditor("Clock.v", 142, 312); // ce (w, ck)
+selectCodeEditor("Clock.v", 52, 463); // ce (w, ck)
+// Elapsed time: 128 seconds
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Program and Debug, Generate Bitstream]", 20, false); // u (O, ck)
+// Run Command: PAResourceCommand.PACommandNames_RUN_BITGEN
+// aj (ck): Save Project: addNotify
+selectButton(PAResourceQtoS.SaveProjectUtils_SAVE, "Save"); // a (aj)
+// bx (ck):  Save Constraints : addNotify
+// TclEventType: DG_GRAPH_STALE
+dismissDialog("Save Project"); // aj (ck)
+// TclEventType: FILE_SET_CHANGE
+// f (ck): Launch Runs: addNotify
+selectButton("PAResourceQtoS.RunBitgen_BITSTREAM_GENERATION_HAS_ALREADY_COMPLETED_OK", "OK"); // JButton (A, G)
+// TclEventType: DG_ANALYSIS_MSG_RESET
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (f)
+// 'cv' command handler elapsed time: 5 seconds
+// TclEventType: RUN_MODIFY
+dismissDialog("Launch Runs"); // f (ck)
+// TclEventType: RUN_RESET
+// TclEventType: RUN_MODIFY
+// bx (ck):  Generate Bitstream : addNotify
+// TclEventType: DG_GRAPH_GENERATED
+// Tcl Message: reset_run impl_1 -prev_step  
+// TclEventType: RUN_LAUNCH
+// TclEventType: RUN_MODIFY
+// Tcl Message: launch_runs impl_1 -to_step write_bitstream -jobs 8 
+// Tcl Message: [Tue Mar 19 12:02:04 2019] Launched impl_1... Run output will be captured here: C:/Users/User/Desktop/Lab6/Lab6.runs/impl_1/runme.log 
+dismissDialog("Generate Bitstream"); // bx (ck)
+// [GUI Memory]: 99 MB (+1299kb) [00:16:24]
+// Elapsed time: 55 seconds
+selectCodeEditor("Clock.v", 84, 226); // ce (w, ck)
+selectCodeEditor("Clock.v", 268, 322); // ce (w, ck)
+selectCodeEditor("Clock.v", 193, 236); // ce (w, ck)
+selectCodeEditor("Clock.v", 193, 236); // ce (w, ck)
+selectCodeEditor("Clock.v", 200, 238); // ce (w, ck)
+selectCodeEditor("Clock.v", 200, 238); // ce (w, ck)
+// TclEventType: RUN_COMPLETED
+// ah (ck): Bitstream Generation Completed: addNotify
+selectButton(RDIResource.BaseDialog_CANCEL, "Cancel"); // a (ah)
+dismissDialog("Bitstream Generation Completed"); // ah (ck)
+selectButton(PAResourceOtoP.ProgramDebugTab_PROGRAM_DEVICE, "Program device"); // h (cM, ck)
+// Run Command: PAResourceCommand.PACommandNames_PROGRAM_FPGA
+// bB (ck): Program Device: addNotify
+selectButton(PAResourceOtoP.ProgramFpgaDialog_PROGRAM, "Program"); // a (bB)
+// bx (ck):  Program Device : addNotify
+// TclEventType: HW_DEVICE_CHANGE
+dismissDialog("Program Device"); // bB (ck)
+// Tcl Message: set_property PROBES.FILE {} [get_hw_devices xc7a35t_0] 
+// Tcl Message: set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0] 
+// TclEventType: HW_DEVICE_CHANGE
+// Tcl Message: set_property PROGRAM.FILE {C:/Users/User/Desktop/Lab6/Lab6.runs/impl_1/Clock.bit} [get_hw_devices xc7a35t_0] 
+// Tcl Message: program_hw_devices [get_hw_devices xc7a35t_0] 
+// TclEventType: HW_DEVICE_CHANGE
+// Tcl Message: INFO: [Labtools 27-3164] End of startup status: HIGH 
+// TclEventType: HW_DEVICE_CHANGE
+// TclEventType: HW_SYSMON_CHANGE
+// TclEventType: HW_DEVICE_UPDATE
+// TclEventType: HW_DEVICE_CHANGE
+// TclEventType: HW_DEVICE_PROBES_CHANGE
+// TclEventType: DEBUG_PROBE_SET_CHANGE
+// TclEventType: HW_DEVICE_PROBES_CHANGE
+// Tcl Message: refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0] 
+// Tcl Message: INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it. 
+// 'I' command handler elapsed time: 3 seconds
+dismissDialog("Program Device"); // bx (ck)
+// Elapsed time: 30 seconds
+selectCodeEditor("Clock.v", 736, 26); // ce (w, ck)
+typeControlKey((HResource) null, "Clock.v", 'c'); // ce (w, ck)
+typeControlKey((HResource) null, "Clock.v", 'c'); // ce (w, ck)
+typeControlKey((HResource) null, "Clock.v", 'c'); // ce (w, ck)
+selectCodeEditor("Clock.v", 256, 381); // ce (w, ck)
+typeControlKey((HResource) null, "Clock.v", 'v'); // ce (w, ck)
+selectCodeEditor("Clock.v", 216, 383); // ce (w, ck)
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+selectCodeEditor("Clock.v", 961, 114); // ce (w, ck)
+typeControlKey((HResource) null, "Clock.v", 'c'); // ce (w, ck)
+typeControlKey((HResource) null, "Clock.v", 'c'); // ce (w, ck)
+typeControlKey((HResource) null, "Clock.v", 'c'); // ce (w, ck)
+selectCodeEditor("Clock.v", 258, 181); // ce (w, ck)
+typeControlKey((HResource) null, "Clock.v", 'v'); // ce (w, ck)
+selectCodeEditor("Clock.v", 216, 183, false, false, false, true, false); // ce (w, ck) - Popup Trigger
+selectCodeEditor("Clock.v", 215, 183, false, false, false, true, false); // ce (w, ck) - Popup Trigger
+selectCodeEditor("Clock.v", 189, 180, false, false, false, true, false); // ce (w, ck) - Popup Trigger
+selectCodeEditor("Clock.v", 109, 174); // ce (w, ck)
+// [GUI Memory]: 104 MB (+232kb) [00:18:12]
+selectCodeEditor("Clock.v", 215, 434); // ce (w, ck)
+// Elapsed time: 30 seconds
+selectCodeEditor("Clock.v", 287, 291); // ce (w, ck)
+selectCodeEditor("Clock.v", 126, 204); // ce (w, ck)
+selectCodeEditor("Clock.v", 190, 239); // ce (w, ck)
+// Elapsed time: 40 seconds
+unMinimizeFrame(RDIResource.RDIViews_PROPERTIES, "Properties"); // aw
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Project Manager]", 0, true); // u (O, ck) - Node
+// Run Command: PAResourceCommand.PACommandNames_GOTO_PROJECT_MANAGER
+unMinimizeFrame(PAResourceOtoP.PAViews_SOURCES, "Sources"); // aw
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Constraints]", 2); // B (D, ck)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Constraints, constrs_1, board.xdc]", 4, false); // B (D, ck)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Constraints, constrs_1, board.xdc]", 4, false, false, false, false, false, true); // B (D, ck) - Double Click
+// Elapsed time: 76 seconds
+selectCodeEditor("board.xdc", 439, 265); // ce (w, ck)
+typeControlKey((HResource) null, "board.xdc", 'v'); // ce (w, ck)
+selectTab((HResource) null, "PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "board.xdc", 1, true, false); // k (j, ck) - Popup Trigger
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "Clock.v", 1); // k (j, ck)
+// HMemoryUtils.trashcanNow. Engine heap size: 1,339 MB. GUI used memory: 48 MB. Current time: 3/19/19 12:07:22 PM PDT
+selectCodeEditor("Clock.v", 282, 132); // ce (w, ck)
+// Elapsed time: 74 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "board.xdc", 2); // k (j, ck)
+selectCodeEditor("board.xdc", 210, 64); // ce (w, ck)
+selectCodeEditor("board.xdc", 185, 40); // ce (w, ck)
+selectCodeEditor("board.xdc", 187, 40); // ce (w, ck)
+selectCodeEditor("board.xdc", 251, 61); // ce (w, ck)
+selectCodeEditor("board.xdc", 405, 279); // ce (w, ck)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "Clock.v", 1); // k (j, ck)
+// Elapsed time: 93 seconds
+selectCodeEditor("Clock.v", 232, 151); // ce (w, ck)
+selectCodeEditor("Clock.v", 159, 58); // ce (w, ck)
+// Elapsed time: 10 seconds
+selectCodeEditor("Clock.v", 219, 202); // ce (w, ck)
+selectCodeEditor("Clock.v", 206, 204); // ce (w, ck)
+selectCodeEditor("Clock.v", 208, 199); // ce (w, ck)
+selectCodeEditor("Clock.v", 216, 200); // ce (w, ck)
+selectCodeEditor("Clock.v", 216, 200); // ce (w, ck)
+// Elapsed time: 18 seconds
+selectCodeEditor("Clock.v", 226, 203); // ce (w, ck)
+selectCodeEditor("Clock.v", 226, 199); // ce (w, ck)
+selectCodeEditor("Clock.v", 232, 195); // ce (w, ck)
+selectCodeEditor("Clock.v", 232, 195); // ce (w, ck)
+selectCodeEditor("Clock.v", 219, 192); // ce (w, ck)
+selectCodeEditor("Clock.v", 207, 201); // ce (w, ck)
+selectCodeEditor("Clock.v", 202, 201); // ce (w, ck)
+selectCodeEditor("Clock.v", 212, 197); // ce (w, ck)
+selectCodeEditor("Clock.v", 216, 195); // ce (w, ck)
+selectCodeEditor("Clock.v", 223, 195); // ce (w, ck)
+selectButton(RDIResourceCommand.RDICommands_SAVE_FILE, (String) null); // B (f, ck)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Program and Debug, Generate Bitstream]", 20, false); // u (O, ck)
+// Run Command: PAResourceCommand.PACommandNames_RUN_BITGEN
+// aj (ck): Save Project: addNotify
+selectButton(PAResourceQtoS.SaveProjectUtils_SAVE, "Save"); // a (aj)
+// TclEventType: FILE_SET_CHANGE
+// bx (ck):  Save Constraints : addNotify
+// A (ck): Synthesis is Out-of-date: addNotify
+// TclEventType: FILE_SET_CHANGE
+dismissDialog("Save Project"); // aj (ck)
+selectButton(RDIResource.BaseDialog_YES, "Yes"); // a (A)
+// bx (ck):  Resetting Runs : addNotify
+// TclEventType: RUN_MODIFY
+dismissDialog("Synthesis is Out-of-date"); // A (ck)
+// TclEventType: RUN_RESET
+// Tcl Message: reset_run synth_1 
+// TclEventType: RUN_RESET
+// TclEventType: RUN_MODIFY
+// f (ck): Launch Runs: addNotify
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (f)
+// 'cv' command handler elapsed time: 4 seconds
+dismissDialog("Launch Runs"); // f (ck)
+// TclEventType: RUN_LAUNCH
+// TclEventType: RUN_MODIFY
+// bx (ck):  Generate Bitstream : addNotify
+// Tcl Message: launch_runs impl_1 -to_step write_bitstream -jobs 8 
+// Tcl Message: [Tue Mar 19 12:11:39 2019] Launched synth_1... Run output will be captured here: C:/Users/User/Desktop/Lab6/Lab6.runs/synth_1/runme.log [Tue Mar 19 12:11:39 2019] Launched impl_1... Run output will be captured here: C:/Users/User/Desktop/Lab6/Lab6.runs/impl_1/runme.log 
+dismissDialog("Generate Bitstream"); // bx (ck)
+// Elapsed time: 23 seconds
+selectTreeTable(PAResourceEtoH.ExpRunTreePanel_EXP_RUN_TREE_TABLE, null, -1, null, -1, false, false, false, false, true, false); // ax (O, ck) - Popup Trigger
+selectTreeTable(PAResourceEtoH.ExpRunTreePanel_EXP_RUN_TREE_TABLE, null, -1, null, -1, false, false, false, false, true, false); // ax (O, ck) - Popup Trigger
+selectCodeEditor("Clock.v", 367, 123); // ce (w, ck)
+selectCodeEditor("Clock.v", 367, 123); // ce (w, ck)
+selectCodeEditor("Clock.v", 367, 123, false, false, false, true, false); // ce (w, ck) - Popup Trigger
+selectCodeEditor("Clock.v", 185, 171); // ce (w, ck)
+selectCodeEditor("Clock.v", 248, 51); // ce (w, ck)
+selectCodeEditor("Clock.v", 242, 43); // ce (w, ck)
+// TclEventType: RUN_COMPLETED
+selectCodeEditor("Clock.v", 240, 51); // ce (w, ck)
+selectCodeEditor("Clock.v", 248, 44); // ce (w, ck)
+selectCodeEditor("Clock.v", 248, 44); // ce (w, ck)
+selectCodeEditor("Clock.v", 4, 107); // ce (w, ck)
+selectCodeEditor("Clock.v", 264, 193); // ce (w, ck)
+// TclEventType: RUN_STEP_COMPLETED
+selectCodeEditor("Clock.v", 223, 209); // ce (w, ck)
+selectCodeEditor("Clock.v", 231, 215); // ce (w, ck)
+selectCodeEditor("Clock.v", 222, 215); // ce (w, ck)
+selectCodeEditor("Clock.v", 276, 123); // ce (w, ck)
+selectCodeEditor("Clock.v", 287, 130); // ce (w, ck)
+// Elapsed time: 11 seconds
+selectCodeEditor("Clock.v", 248, 177); // ce (w, ck)
+// TclEventType: RUN_COMPLETED
+// ah (ck): Bitstream Generation Completed: addNotify
+// Elapsed time: 42 seconds
+selectButton(RDIResource.BaseDialog_CANCEL, "Cancel"); // a (ah)
+dismissDialog("Bitstream Generation Completed"); // ah (ck)
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Program and Debug, Open Hardware Manager, Program Device]", 23, false); // u (O, ck)
+// Run Command: PAResourceCommand.PACommandNames_PROGRAM_FPGA
+selectMenuItem((HResource) null, "xc7a35t_0"); // ad (aj, ck)
+// Run Command: PAResourceCommand.PACommandNames_OPEN_HARDWARE_MANAGER
+// Tcl Command: 'rdi::info_commands get_hw_probes'
+// Run Command: PAResourceCommand.PACommandNames_PROGRAM_FPGA
+// bB (ck): Program Device: addNotify
+selectButton(PAResourceOtoP.ProgramFpgaDialog_PROGRAM, "Program"); // a (bB)
+// bx (ck):  Program Device : addNotify
+// TclEventType: HW_DEVICE_CHANGE
+dismissDialog("Program Device"); // bB (ck)
+// Tcl Message: set_property PROBES.FILE {} [get_hw_devices xc7a35t_0] 
+// Tcl Message: set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0] 
+// TclEventType: HW_DEVICE_CHANGE
+// Tcl Message: set_property PROGRAM.FILE {C:/Users/User/Desktop/Lab6/Lab6.runs/impl_1/Clock.bit} [get_hw_devices xc7a35t_0] 
+// Tcl Message: program_hw_devices [get_hw_devices xc7a35t_0] 
+// TclEventType: HW_DEVICE_CHANGE
+// Tcl Message: INFO: [Labtools 27-3164] End of startup status: HIGH 
+// TclEventType: HW_DEVICE_CHANGE
+// TclEventType: HW_SYSMON_CHANGE
+// TclEventType: HW_DEVICE_UPDATE
+// TclEventType: HW_DEVICE_CHANGE
+// TclEventType: HW_DEVICE_PROBES_CHANGE
+// TclEventType: DEBUG_PROBE_SET_CHANGE
+// TclEventType: HW_DEVICE_PROBES_CHANGE
+// Tcl Message: refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0] 
+// Tcl Message: INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it. 
+dismissDialog("Program Device"); // bx (ck)
+// Elapsed time: 38 seconds
+selectCodeEditor("Clock.v", 233, 116); // ce (w, ck)
+selectCodeEditor("Clock.v", 114, 143); // ce (w, ck)
+selectCodeEditor("Clock.v", 128, 142); // ce (w, ck)
+selectCodeEditor("Clock.v", 107, 151); // ce (w, ck)
+selectCodeEditor("Clock.v", 133, 357); // ce (w, ck)
+selectCodeEditor("Clock.v", 178, 366); // ce (w, ck)
+// Elapsed time: 10 seconds
+selectCodeEditor("Clock.v", 221, 213); // ce (w, ck)
+selectCodeEditor("Clock.v", 228, 281); // ce (w, ck)
+selectCodeEditor("Clock.v", 218, 138); // ce (w, ck)
+selectCodeEditor("Clock.v", 261, 70); // ce (w, ck)
+// Elapsed time: 101 seconds
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Program and Debug, Generate Bitstream]", 20, false); // u (O, ck)
+// Run Command: PAResourceCommand.PACommandNames_RUN_BITGEN
+// aj (ck): Save Project: addNotify
+selectButton(PAResourceQtoS.SaveProjectUtils_SAVE, "Save"); // a (aj)
+// bx (ck):  Save Constraints : addNotify
+// TclEventType: DG_GRAPH_STALE
+dismissDialog("Save Project"); // aj (ck)
+// TclEventType: FILE_SET_CHANGE
+// f (ck): Launch Runs: addNotify
+selectButton("PAResourceQtoS.RunBitgen_BITSTREAM_GENERATION_HAS_ALREADY_COMPLETED_OK", "OK"); // JButton (A, G)
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (f)
+// HOptionPane Warning: 'A background task is running. Please wait until it completes and try again. (Background Task)'
+selectButton("OptionPane.button", "OK"); // JButton (A, H)
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (f)
+// 'cv' command handler elapsed time: 8 seconds
+// TclEventType: RUN_MODIFY
+dismissDialog("Launch Runs"); // f (ck)
+// TclEventType: RUN_RESET
+// TclEventType: RUN_MODIFY
+// Tcl Message: reset_run impl_1 -prev_step  
+// TclEventType: RUN_LAUNCH
+// bx (ck):  Generate Bitstream : addNotify
+// TclEventType: RUN_MODIFY
+// Tcl Message: launch_runs impl_1 -to_step write_bitstream -jobs 8 
+// Tcl Message: [Tue Mar 19 12:17:02 2019] Launched impl_1... Run output will be captured here: C:/Users/User/Desktop/Lab6/Lab6.runs/impl_1/runme.log 
+dismissDialog("Generate Bitstream"); // bx (ck)
+// TclEventType: RUN_COMPLETED
+// ah (ck): Bitstream Generation Completed: addNotify
+// Elapsed time: 68 seconds
+dismissDialog("Bitstream Generation Completed"); // ah (ck)
+selectButton(PAResourceOtoP.ProgramDebugTab_PROGRAM_DEVICE, "Program device"); // h (cM, ck)
+// Run Command: PAResourceCommand.PACommandNames_PROGRAM_FPGA
+// bB (ck): Program Device: addNotify
+selectButton(PAResourceOtoP.ProgramFpgaDialog_PROGRAM, "Program"); // a (bB)
+// bx (ck):  Program Device : addNotify
+// TclEventType: HW_DEVICE_CHANGE
+dismissDialog("Program Device"); // bB (ck)
+// Tcl Message: set_property PROBES.FILE {} [get_hw_devices xc7a35t_0] 
+// Tcl Message: set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0] 
+// TclEventType: HW_DEVICE_CHANGE
+// Tcl Message: set_property PROGRAM.FILE {C:/Users/User/Desktop/Lab6/Lab6.runs/impl_1/Clock.bit} [get_hw_devices xc7a35t_0] 
+// Tcl Message: program_hw_devices [get_hw_devices xc7a35t_0] 
+// TclEventType: HW_DEVICE_CHANGE
+// Tcl Message: INFO: [Labtools 27-3164] End of startup status: HIGH 
+// TclEventType: HW_DEVICE_CHANGE
+// TclEventType: HW_SYSMON_CHANGE
+// TclEventType: HW_DEVICE_UPDATE
+// TclEventType: HW_DEVICE_CHANGE
+// TclEventType: HW_DEVICE_PROBES_CHANGE
+// TclEventType: DEBUG_PROBE_SET_CHANGE
+// TclEventType: HW_DEVICE_PROBES_CHANGE
+// Tcl Message: refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0] 
+// Tcl Message: INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it. 
+dismissDialog("Program Device"); // bx (ck)
+// Elapsed time: 12 seconds
+selectCodeEditor("Clock.v", 201, 158); // ce (w, ck)
+selectCodeEditor("Clock.v", 197, 162); // ce (w, ck)
+// TclEventType: HW_TARGET_NEEDS_CLOSE
+// TclEventType: HW_TARGET_CLOSE
+// TclEventType: HW_SYSMON_DELETE
+// TclEventType: HW_TARGET_UPDATE
+// TclEventType: DEBUG_PROBE_DELETE
+// Tcl Message: ERROR: [Labtoolstcl 44-513] HW Target shutdown. Closing target: localhost:3121/xilinx_tcf/Digilent/210183AA5E94A 
+// n (ck): Close Hardware Target: addNotify
+// TclEventType: HW_TARGET_NEEDS_CLOSE
+// TclEventType: HW_SERVER_UPDATE
+// HMemoryUtils.trashcanNow. Engine heap size: 1,343 MB. GUI used memory: 48 MB. Current time: 3/19/19 1:59:02 PM PDT
+// Elapsed time: 6052 seconds
+selectButton(PAResourceAtoD.CmdMsgDialog_OK, "OK"); // f (n)
+dismissDialog("Close Hardware Target"); // n (ck)
+// Elapsed time: 50 seconds
+closeMainWindow("Lab6 - [C:/Users/User/Desktop/Lab6/Lab6.xpr] - Vivado 2018.2"); // ck
+closeMainWindow("Lab6 - [C:/Users/User/Desktop/Lab6/Lab6.xpr] - Vivado 2018.2"); // ck
+closeMainWindow("Lab6 - [C:/Users/User/Desktop/Lab6/Lab6.xpr] - Vivado 2018.2"); // ck
+closeMainWindow("Lab6 - [C:/Users/User/Desktop/Lab6/Lab6.xpr] - Vivado 2018.2"); // ck
+closeMainWindow("Lab6 - [C:/Users/User/Desktop/Lab6/Lab6.xpr] - Vivado 2018.2"); // ck
+closeMainWindow("Lab6 - [C:/Users/User/Desktop/Lab6/Lab6.xpr] - Vivado 2018.2"); // ck
+closeMainWindow("Lab6 - [C:/Users/User/Desktop/Lab6/Lab6.xpr] - Vivado 2018.2"); // ck
+// Elapsed time: 16 seconds
+closeMainWindow("Lab6 - [C:/Users/User/Desktop/Lab6/Lab6.xpr] - Vivado 2018.2"); // ck
+closeMainWindow("Lab6 - [C:/Users/User/Desktop/Lab6/Lab6.xpr] - Vivado 2018.2"); // ck
+closeMainWindow("Lab6 - [C:/Users/User/Desktop/Lab6/Lab6.xpr] - Vivado 2018.2"); // ck
+closeMainWindow("Lab6 - [C:/Users/User/Desktop/Lab6/Lab6.xpr] - Vivado 2018.2"); // ck
+closeMainWindow("Lab6 - [C:/Users/User/Desktop/Lab6/Lab6.xpr] - Vivado 2018.2"); // ck
+closeMainWindow("Lab6 - [C:/Users/User/Desktop/Lab6/Lab6.xpr] - Vivado 2018.2"); // ck
+closeMainWindow("Lab6 - [C:/Users/User/Desktop/Lab6/Lab6.xpr] - Vivado 2018.2"); // ck
+closeMainWindow("Lab6 - [C:/Users/User/Desktop/Lab6/Lab6.xpr] - Vivado 2018.2"); // ck
+selectButton(RDIResourceCommand.RDICommands_SAVE_FILE, (String) null); // B (f, ck)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
